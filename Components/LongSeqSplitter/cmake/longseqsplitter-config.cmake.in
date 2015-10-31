@@ -1,0 +1,54 @@
+# LongSeqSplitter CMake config file
+#
+# This file sets the following variables:
+# LongSeqSplitter_FOUND - Always TRUE.
+# LongSeqSplitter_INCLUDE_DIRS - Directories containing the LongSeqSplitter include files.
+# LongSeqSplitter_IDL_DIRS - Directories containing the LongSeqSplitter IDL files.
+# LongSeqSplitter_LIBRARIES - Libraries needed to use LongSeqSplitter.
+# LongSeqSplitter_DEFINITIONS - Compiler flags for LongSeqSplitter.
+# LongSeqSplitter_VERSION - The version of LongSeqSplitter found.
+# LongSeqSplitter_VERSION_MAJOR - The major version of LongSeqSplitter found.
+# LongSeqSplitter_VERSION_MINOR - The minor version of LongSeqSplitter found.
+# LongSeqSplitter_VERSION_REVISION - The revision version of LongSeqSplitter found.
+# LongSeqSplitter_VERSION_CANDIDATE - The candidate version of LongSeqSplitter found.
+
+message(STATUS "Found LongSeqSplitter-@PROJECT_VERSION@")
+set(LongSeqSplitter_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(LongSeqSplitter_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(LongSeqSplitter_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(LongSeqSplitter_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(LongSeqSplitter_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(LongSeqSplitter_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(LongSeqSplitter_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(LongSeqSplitter_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(LongSeqSplitter_VERSION @PROJECT_VERSION@)
+set(LongSeqSplitter_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(LongSeqSplitter_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(LongSeqSplitter_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(LongSeqSplitter_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

@@ -1,0 +1,54 @@
+# AKAZEMatching CMake config file
+#
+# This file sets the following variables:
+# AKAZEMatching_FOUND - Always TRUE.
+# AKAZEMatching_INCLUDE_DIRS - Directories containing the AKAZEMatching include files.
+# AKAZEMatching_IDL_DIRS - Directories containing the AKAZEMatching IDL files.
+# AKAZEMatching_LIBRARIES - Libraries needed to use AKAZEMatching.
+# AKAZEMatching_DEFINITIONS - Compiler flags for AKAZEMatching.
+# AKAZEMatching_VERSION - The version of AKAZEMatching found.
+# AKAZEMatching_VERSION_MAJOR - The major version of AKAZEMatching found.
+# AKAZEMatching_VERSION_MINOR - The minor version of AKAZEMatching found.
+# AKAZEMatching_VERSION_REVISION - The revision version of AKAZEMatching found.
+# AKAZEMatching_VERSION_CANDIDATE - The candidate version of AKAZEMatching found.
+
+message(STATUS "Found AKAZEMatching-@PROJECT_VERSION@")
+set(AKAZEMatching_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(AKAZEMatching_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(AKAZEMatching_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(AKAZEMatching_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(AKAZEMatching_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(AKAZEMatching_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(AKAZEMatching_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(AKAZEMatching_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(AKAZEMatching_VERSION @PROJECT_VERSION@)
+set(AKAZEMatching_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(AKAZEMatching_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(AKAZEMatching_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(AKAZEMatching_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

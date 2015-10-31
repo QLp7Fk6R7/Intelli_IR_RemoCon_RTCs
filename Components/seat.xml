@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <seatml>
+    <general name="sample">
+      <agent name="speechin" type="rtcin" datatype="TimedString" />
+      <agent name="speechout" type="rtcout" datatype="TimedString" />
+    </general>
+  <state name="idle">
+    <rule>
+      <key>電源 入れて</key>
+      <command host="speechout">0 on</command>
+    </rule>
+    <rule>
+      <key>電源 切って</key>
+      <command host="speechout">0 off</command>
+    </rule>
+    <rule>
+      <key>全て 入れて</key>
+      <command host="speechout">all on</command>
+    </rule>
+    <rule>
+      <key>全て 切って</key>
+      <command host="speechout">all off</command>
+    </rule>
+  </state>
+</seatml>

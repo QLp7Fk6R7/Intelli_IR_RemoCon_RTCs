@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{182D627B-7037-495F-BF48-319537FA6951}") = "TemplateMatchingComp", "TemplateMatchingComp_vc8.vcproj", "{6A1CCEB9-2479-4EBA-9218-6B50165F060D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{182D627B-7037-495F-BF48-319537FA6951}") = "TemplateMatching", "TemplateMatching_vc8.vcproj", "{29F2D75E-3F46-4244-90E7-3311A56E2675}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Win32 = Release|Win32
+		Debug|Win32 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A1CCEB9-2479-4EBA-9218-6B50165F060D}.Release|Win32.ActiveCfg = Release|Win32
+		{6A1CCEB9-2479-4EBA-9218-6B50165F060D}.Release|Win32.Build.0   = Release|Win32
+		{6A1CCEB9-2479-4EBA-9218-6B50165F060D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6A1CCEB9-2479-4EBA-9218-6B50165F060D}.Debug|Win32.Build.0   = Debug|Win32
+		{29F2D75E-3F46-4244-90E7-3311A56E2675}.Release|Win32.ActiveCfg = Release|Win32
+		{29F2D75E-3F46-4244-90E7-3311A56E2675}.Release|Win32.Build.0   = Release|Win32
+		{29F2D75E-3F46-4244-90E7-3311A56E2675}.Debug|Win32.ActiveCfg = Debug|Win32
+		{29F2D75E-3F46-4244-90E7-3311A56E2675}.Debug|Win32.Build.0   = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

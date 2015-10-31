@@ -1,0 +1,54 @@
+# CropImage CMake config file
+#
+# This file sets the following variables:
+# CropImage_FOUND - Always TRUE.
+# CropImage_INCLUDE_DIRS - Directories containing the CropImage include files.
+# CropImage_IDL_DIRS - Directories containing the CropImage IDL files.
+# CropImage_LIBRARIES - Libraries needed to use CropImage.
+# CropImage_DEFINITIONS - Compiler flags for CropImage.
+# CropImage_VERSION - The version of CropImage found.
+# CropImage_VERSION_MAJOR - The major version of CropImage found.
+# CropImage_VERSION_MINOR - The minor version of CropImage found.
+# CropImage_VERSION_REVISION - The revision version of CropImage found.
+# CropImage_VERSION_CANDIDATE - The candidate version of CropImage found.
+
+message(STATUS "Found CropImage-@PROJECT_VERSION@")
+set(CropImage_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(CropImage_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(CropImage_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(CropImage_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(CropImage_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(CropImage_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(CropImage_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(CropImage_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(CropImage_VERSION @PROJECT_VERSION@)
+set(CropImage_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(CropImage_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(CropImage_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(CropImage_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
